@@ -1,0 +1,3 @@
+<div class="container-fluid">
+	<%= pie_chart @user_items.group(:category).sum(:amount), donut: true %>
+</div>

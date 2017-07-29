@@ -1,0 +1,86 @@
+
+<div class="container-fluid">
+
+<h2 class="text_h2"> Profile </h2>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+
+      <form class="form-horizontal">
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Fisrtname </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= @user.firstname %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Lastname </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= @user.lastname %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Othernames </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= @user.othernames %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Username </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= @user.username %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Occupation </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= @user.occupation %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Date of Birth </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= @user.date_of_birth %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Currency </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= @user.unit %>
+            </div>
+          </div>  
+        </div>
+
+
+      </form>
+
+
+
+    </div>
+  </div>
+
+      <%= link_to 'Settings', edit_user_path(@user), class: 'btn btn-primary' %> |
+      <%= link_to 'Back to Home', root_url, class: 'btn btn-default' %>
+</div>
+
+

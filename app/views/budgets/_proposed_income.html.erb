@@ -1,0 +1,30 @@
+
+<%= bootstrap_form_for([@budget, @budget.proposed_incomes.build]) do |f| %>
+  <% if @proposed_income.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proposed_income.errors.count, "error") %> prohibited this proposed_income from being saved:</h2>
+
+      <ul>
+      <% @proposed_income.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :source, class: 'butn' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :comment, class: 'butn' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :amount, class: 'butn' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save Income", class: "btn btn-primary" %>
+  </div>
+<% end %>

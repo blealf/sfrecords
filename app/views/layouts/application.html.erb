@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BattAccount</title>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    params["controller"], media: 'screen' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "incomes", "data-turbolinks-track" => true  %>
+  </head>
+
+  <body>
+    <div id="kbounding">
+      <%= render 'layouts/header' %>
+    	<%#= render 'layouts/Basic-Header' %>
+      <div class="cover">
+        <div class="container-fluid">
+          <% flash.each do |message_type, message| %>
+            <div class="alert alert-<%= message_type %>" id="notice"><%= message %></div>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
+      <div id="before_footer"></div>
+      <%= render 'layouts/footer_white' %>
+      <%#= render 'layouts/footer_with_logo' %>
+    </div>
+  </body>
+</html>

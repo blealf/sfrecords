@@ -1,0 +1,75 @@
+<h1>Users</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Othernames</th>
+      <th>Email</th>
+      <th>Occupation</th>
+      <th>DOB</th>
+      <th>Username</th>
+      <th>Password digest</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.firstname %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.othernames %></td>
+        <td><%= user.email %></td>
+        <td><%= user.occupation %></td>
+        <td><%= user.date_of_birth %></td>
+        <td><%= user.username %></td>
+        <td><%= user.password_digest %></td>
+        <td> <%= link_to "Show", user, class: "btn btn-success" %> </td>
+        <td> <%= link_to 'Update', edit_user_path(user), class: "btn btn-primary" %> </td>
+        <td> <button class="btn btn-danger" data-toggle="modal" data-target="#myModal"> Remove </button> </td>
+
+        <div class="modal fade" id="myModal" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal" arai-label="Close"> <span>&times</span> </button>
+                <h4 class="modat-title"> <%= user.firstname %> </h4>
+              </div>
+              <div class="modal-body">
+                Do you want to delete this item?
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal"> Close </button>
+                <%= link_to 'Remove', { action: :destroy, id: user.id }, method: :delete, class: "btn btn-danger" %>
+              </div>
+            </div>
+          </div>  
+        </div>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="modal fade" id="myModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal" arai-label="Close"> <span>&times</span> </button>
+        <h4 class="modat-title"></h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        
+      </div>
+    </div>
+  </div>  
+</div>
+
+<%= link_to 'New User', new_user_path %>

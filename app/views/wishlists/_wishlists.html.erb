@@ -1,0 +1,41 @@
+<div class="cover">
+  <h3>Wishlists</h3>
+  <% if defined?(@wishlists) %>
+    <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Item Name</th>
+          <th>Comment</th>
+          <th>Item Cost</th>
+          <th>Quantity</th>
+          <th>Amount</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @wishlists.each do |wishlist| %>
+          <tr>
+            <td><%= wishlist.itemname %></td>
+            <td>
+              <% if !wishlist.comment.empty? %>
+                <button type="button" class="btn btn-default" data-toggle="popover" title="Comment" data-content="<%= wishlist.comment%>" data-placement="top" id="my_button" >
+                View
+                </button>
+              <% end %>
+            </td>
+            <td><%= wishlist.itemcost%></td>
+            <td><%= wishlist.quantity %></td>
+            <td><%= wishlist.amount %></td>
+            <td><%= link_to 'Edit', edit_wishlist_path(wishlist), class: 'btn btn-primary' %></td>
+            <td><%= link_to 'Delete', wishlist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+  </div>
+  <% end %>
+</div>

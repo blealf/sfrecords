@@ -1,0 +1,12 @@
+<div class="container-fluid cover">
+	<h2 class="text_h2">Edit Income</h2>
+
+	<%= render 'form', income: @income %>
+	<hr>
+	<%=render 'incomes' %>
+
+	<hr>
+
+	<%= link_to 'Back to Incomes', incomes_path, class: 'btn btn-default' %>
+	
+</div>

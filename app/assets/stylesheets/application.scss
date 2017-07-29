@@ -1,0 +1,135 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require rails_bootstrap_forms
+ *= require bootstrap-datepicker3
+ *= require basic_header
+ *= require header_icons
+ *= require footer_white
+ *= rquire bootstrap
+ *= require foot
+ *= require_self
+ */
+
+//@import "bootstrap";
+@import "bootstrap.min";
+
+//@import "bootstrap-sprockets";
+//@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.css");
+//@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+
+
+body {
+	background-color: #f4ffff;
+	//background-color: #fffcea;
+	//background-color: grey;
+
+}
+
+#bounding {
+	margin: 0 auto;
+	max-width: 1100px;
+}
+
+.cover {
+	margin: 0 auto;
+	max-width: 1100px;
+}
+
+#main_front {
+	margin-top: -20px;
+}
+
+//========================
+.btn, .butn {
+	border-top-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.budget{
+	background-color: #a3ffe0;
+	margin: 0 auto;
+	max-width: 700px;
+	padding: 10px;	
+	border-top-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	box-shadow: 5px 5px 5px #778480;
+
+}
+
+//========================
+
+.top_form{
+	margin: 0 auto;
+	text-align: center;
+}
+
+h2 span {
+	font-size: 0.5em;
+}
+
+td a {
+	color: white;
+}
+
+a:hover {
+	text-decoration: none;
+	color: black;
+}
+
+#notice {
+	color: green;
+}
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.pretty th .asc {
+  background-image: url(http://tablesorter.com/themes/blue/bg.gif); 
+}
+
+.pretty th .desc { 
+  //background-image: url(/images/down_arrow.gif);
+   background-image: url(http://tablesorter.com/themes/blue/bg.gif); 
+}
+
+.text_h2 {
+	text-align: center;
+}
+
+//----------------------------------------
+/*.no {
+	display: none;
+}
+
+.yes {
+	display: block;
+	width: 100px;
+	height: 200px;
+}
+
+#comment {
+	white-space: nowrap;
+    overflow: hidden;
+	text-overflow: ellipsis; 
+	max-width: 8ch;
+}*/
+
+.comment {
+	display: none;
+}
+
+
+
+

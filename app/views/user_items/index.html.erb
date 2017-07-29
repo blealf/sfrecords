@@ -1,0 +1,27 @@
+<% if logged_in? %>
+<div class="container-fluid">
+  <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4">
+      <h2>New User Item</h2>
+      <%= render 'form', user_item: @user_item, url: { action: "create" } %>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <h2>New User Item</h2>
+      <%= render 'chart'%>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4">
+      <h2>New User Item</h2>
+      <%= render 'chart2', user_item: @user_item %>
+    </div>
+  </div>
+  
+</div>
+
+<hr>
+
+<%= render 'items' %>
+
+<div class="container-fluid">
+  <%= link_to 'View Entries Only', user_items_path, class: "btn btn-primary" %>
+</div>
+<% end %>

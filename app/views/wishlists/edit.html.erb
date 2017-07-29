@@ -1,0 +1,13 @@
+<div class="container-fluid">
+	<h2 class="text_h2">Edit Wishlist</h2>
+
+	<%= render 'form', wishlist: @wishlist %>
+
+	<hr>
+	
+	<%= render 'wishlists' %>
+	
+	<hr>
+
+	<%= link_to 'Back to Wishlists', wishlists_path, class: 'btn btn-default' %>
+</div>

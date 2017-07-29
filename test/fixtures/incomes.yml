@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  job: MyString
+  no_of_hours: 9.99
+  pay: 9.99
+
+two:
+  user: two
+  job: MyString
+  no_of_hours: 9.99
+  pay: 9.99

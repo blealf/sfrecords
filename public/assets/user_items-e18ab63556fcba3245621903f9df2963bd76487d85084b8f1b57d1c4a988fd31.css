@@ -1,0 +1,9 @@
+/* line 5, /home/blealf/Documents/Account/BattAccount/app/assets/stylesheets/user_items.scss */
+a {
+  color: white;
+}
+
+/* line 9, /home/blealf/Documents/Account/BattAccount/app/assets/stylesheets/user_items.scss */
+a:hover {
+  text-decoration: none;
+}

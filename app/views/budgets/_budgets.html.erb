@@ -1,0 +1,43 @@
+<div class="cover">
+  <div class="table-responsive">
+    <h3>Budgets</h3>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Income</th>
+          <th>Spending</th>
+          <th>Saving</th>
+          <th>Created</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @budgets.each do |budget| %>
+          <tr>
+            <td><%= budget.title %></td>
+            <td>
+              <% if !budget.description.empty? %>
+                <button type="button" class="btn btn-default" data-toggle="popover" title="Description" data-content="<%= budget.description%>" data-placement="top" id="my_button" >
+                View
+                </button>
+              <% end %>
+            </td>
+            <td><%= number_to_currency(budget.income, unit: current_user.unit + " ", precision: 2) %></td>
+            <td><%= number_to_currency(budget.spending, unit: current_user.unit + " ", precision: 2) %></td>
+            <td><%= number_to_currency(budget.saving, unit: current_user.unit + " ", precision: 2) %></td>
+            <td><%= time_ago_in_words(budget.created_at) + " ago" %></td>
+            <td><%= link_to 'Show', budget, class: 'btn btn-default' %></td>
+            <td><%= link_to 'Edit', edit_budget_path(budget), class: 'btn btn-primary' %></td>
+            <td><%= link_to 'Delete', budget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<%= bootstrap_form_for([@budget, @budget.proposed_items.build]) do |f| %>
+
+  <% if @proposed_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proposed_item.errors.count, "error") %> prohibited this proposed_item from being saved:</h2>
+
+      <ul>
+      <% @proposed_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.text_field :name, class: "butn" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :comment, class: "butn" %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :cost, class: "butn" %>
+  </div>
+
+  <div class="field">
+    <%= f.number_field :quantity, class: "butn" %>
+  </div>
+
+<!--   <div class="field">
+    <%= f.text_field :amount, class: "butn" %>
+  </div> -->
+
+    <div class="field">
+      <%# if defined?(@categories) %>
+      <%= f.select :category, UserItem.category, {:include_blank => "Category"}, class: "col-sm-12 form-control butn" %>
+      <% #end %>
+    </div>
+
+  <div class="actions">
+    <p>.</p>
+    <%= f.submit "Save Item", class: "btn btn-primary"%>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+
+<table class="table table-collapse table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Source</th>
+      <th>Comment</th>
+      <th>Amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @proposed_incomes.each do |proposed_income| %>
+      <tr>
+        <td><%= proposed_income.source %></td>
+        <td>
+            <% if !proposed_income.comment.empty? %>
+              <button type="button" class="btn btn-default" data-toggle="popover" title="Comment" data-content="<%= proposed_income.comment%>" data-placement="top" id="my_button" >
+              View
+              </button>
+            <% end %>
+        </td>
+        <td><%= proposed_income.amount %></td>
+<!--                 <td><%#= link_to 'Edit', edit_income_path(proposed_income.budget), class: "btn btn-primary"  %></td> -->
+        <td><%= link_to 'Delete', [proposed_income.budget, proposed_income], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
