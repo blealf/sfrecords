@@ -2,6 +2,6 @@
 	<%#= pie_chart @user_items.group(:category).count, donut: true %>
 	<%#= line_chart @user_items.group_by_minute(:created_at).count %>
 	<%#= column_chart @user_items.group_by_day_of_week(:created_at, format: "%a").count %>
-	<%= bar_chart @user_items.group(:storename).sum(:amount) %>
+	<%#= bar_chart @user_items.group(:storename).sum(:amount) %>
 	<%#= area_chart @user_items.group_by_minute(:created_at).maximum(:quantity) %>
 </div>

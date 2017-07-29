@@ -21,6 +21,10 @@ class User < ApplicationRecord
 	
 	has_secure_password
 
+	def self.unit
+		return ["CAD", "USD", "EUR", "GBP", "AUD", "NZD", "NGN", "YEN", "BGN", "CHF"]
+	end
+
 
 	# def self.digest(string)
 	# 	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost

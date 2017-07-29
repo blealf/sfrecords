@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170722143705) do
+ActiveRecord::Schema.define(version: 20170729114519) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "budgets", force: :cascade do |t|
     t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "cost"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.text     "description"
-    t.string   "title"
     t.decimal  "spending"
     t.decimal  "income"
     t.decimal  "saving"
-    t.index ["user_id"], name: "index_budgets_on_user_id"
+    t.index ["user_id"], name: "index_budgets_on_user_id", using: :btree
   end
 
   create_table "incomes", force: :cascade do |t|
@@ -30,13 +34,7 @@ ActiveRecord::Schema.define(version: 20170722143705) do
     t.decimal  "pay"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_incomes_on_user_id"
-  end
-
-  create_table "item_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_incomes_on_user_id", using: :btree
   end
 
   create_table "proposed_incomes", force: :cascade do |t|
@@ -46,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170722143705) do
     t.integer  "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["budget_id"], name: "index_proposed_incomes_on_budget_id"
+    t.index ["budget_id"], name: "index_proposed_incomes_on_budget_id", using: :btree
   end
 
   create_table "proposed_items", force: :cascade do |t|
@@ -54,12 +52,12 @@ ActiveRecord::Schema.define(version: 20170722143705) do
     t.string   "comment"
     t.decimal  "cost"
     t.integer  "quantity"
+    t.decimal  "amount"
     t.string   "category"
     t.integer  "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal  "amount"
-    t.index ["budget_id"], name: "index_proposed_items_on_budget_id"
+    t.index ["budget_id"], name: "index_proposed_items_on_budget_id", using: :btree
   end
 
   create_table "user_items", force: :cascade do |t|
@@ -71,8 +69,9 @@ ActiveRecord::Schema.define(version: 20170722143705) do
     t.decimal  "amount"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.         "user_id"
     t.string   "category"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_user_items_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,7 +97,13 @@ ActiveRecord::Schema.define(version: 20170722143705) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_wishlists_on_user_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id", using: :btree
   end
 
+  add_foreign_key "budgets", "users"
+  add_foreign_key "incomes", "users"
+  add_foreign_key "proposed_incomes", "budgets"
+  add_foreign_key "proposed_items", "budgets"
+  add_foreign_key "user_items", "users"
+  add_foreign_key "wishlists", "users"
 end

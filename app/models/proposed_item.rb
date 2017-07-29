@@ -18,7 +18,7 @@ class ProposedItem < ApplicationRecord
 
   def calculate_spending
   	budget = Budget.find(self.budget_id)
-  	spending = budget.spending + calculate_amount
+  	spending = budget.spending.to_f + calculate_amount
   	budget.update(spending: spending)
   end
 
