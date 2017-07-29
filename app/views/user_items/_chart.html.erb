@@ -1,4 +1,5 @@
 <div class="container-fluid">
-	<%= pie_chart @user_items.group(:category).sum(:amount), donut: true %>
+	<%= pie_chart @user_item_chart.group(:category).sum(:amount), donut: true %>
+	<%#= pie_chart ui.group(:category).sum(:amount), donut: true %>
 	<%#= pie_chart UserItem.group(:category).sum(:amount), donut: true %>
 </div>

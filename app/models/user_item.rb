@@ -14,7 +14,7 @@ class UserItem < ApplicationRecord
 		return ["Clothing", "Educational Materials", "Food", "Gadgets", "Luxury", "Others", "Rent", "Tuition"]
 	end
 
-
+	
 	def calculate_amount
 		if self.quantity == nil || self.quantity < 1
       		self.quantity = 1
