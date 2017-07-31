@@ -29,8 +29,9 @@
         <td><%= proposed_item.amount %></td>
         <td><%= proposed_item.category %></td>
 <!--         <td><%#= link_to 'Edit', edit_budget_proposed_item_path(proposed_item.budget), class: "btn btn-primary" %></td> -->
-        <td><%= link_to 'Delete', [proposed_item.budget, proposed_item], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
-      </tr>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "/budgets/" + proposed_item.budget_id.to_s + "/proposed_items/" + proposed_item.id.to_s %>">Delete</button></td>
+        <!-- <td><%#= link_to 'Delete', [proposed_item.budget, proposed_item], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+      </tr> -->
     <% end %>
   </tbody>
 </table>

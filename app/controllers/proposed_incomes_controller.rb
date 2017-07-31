@@ -42,6 +42,7 @@ class ProposedIncomesController < ApplicationController
   def destroy
     set_proposed_income
     calculate_saving
+    
 
     @proposed_income.destroy
     respond_to do |format|
@@ -54,7 +55,8 @@ class ProposedIncomesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_proposed_income
       @budget = Budget.find(params[:budget_id])
-      @proposed_income = @budget.proposed_incomes.find_by(params[:id])
+      @proposed_income = @budget.proposed_incomes.find(params[:id])
+      # @proposed_income = ProposedIncome.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -5,27 +5,29 @@
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" %>
+    <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
+    <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%#= stylesheet_link_tag    params["controller"], media: 'screen' %>
-    <%= stylesheet_link_tag    'basic_header', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'foot', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'footer_white', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'footer_with_logo', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'header_icons', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'scaffolds', media: 'all', 'data-turbolinks-track': 'reload' %>    
-    <%= stylesheet_link_tag    'user_items', media: 'all', 'data-turbolinks-track': 'reload' %>
-    
+<!--     <%#= stylesheet_link_tag    'basic_header', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'foot', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'footer_white', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'footer_with_logo', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'header_icons', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag    'scaffolds', media: 'all', 'data-turbolinks-track': 'reload' %>    
+    <%#= stylesheet_link_tag    'user_items', media: 'all', 'data-turbolinks-track': 'reload' %> -->
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'http://yandex.st/bootstrap/3.1.1/css/bootstrap.min.css' %>
-    <%= javascript_include_tag 'http://yandex.st/bootstrap/3.1.1/js/bootstrap.min.js' %>
-    <%= javascript_include_tag "http://www.google.com/jsapi", "chartkick" %>
-    <%= javascript_include_tag "npm", "data-turbolinks-track" => true  %>
-    <%= javascript_include_tag "user_items", "data-turbolinks-track" => true  %>
-    <%= javascript_include_tag "bootstrap", "data-turbolinks-track" => true  %>
-    <%= javascript_include_tag "cable", "data-turbolinks-track" => true  %>
-    <%= javascript_include_tag "income", "data-turbolinks-track" => true  %>
+
+<!--     <%#= javascript_include_tag "npm", "data-turbolinks-track" => true  %>
+    <%#= javascript_include_tag "user_items", "data-turbolinks-track" => true  %>
+    <%#= javascript_include_tag "bootstrap", "data-turbolinks-track" => true  %>
+    <%#= javascript_include_tag "cable", "data-turbolinks-track" => true  %>
+    <%#= javascript_include_tag "income", "data-turbolinks-track" => true  %> -->
   </head>
 
   <body>

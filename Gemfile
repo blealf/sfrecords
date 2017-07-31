@@ -43,7 +43,7 @@ gem 'rails_bootstrap_navbar'
 gem 'bcrypt', '3.1.11'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'data-confirm-modal', github: 'ifad/data-confirm-modal', branch: 'bootstrap2'
-# gem 'data-confirm-modal'
+gem 'data-confirm-modal'
 # Charts
 gem "chartkick"
 gem 'groupdate'

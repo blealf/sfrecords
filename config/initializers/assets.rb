@@ -13,15 +13,21 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( *.css )
 # Rails.application.config.assets.precompile += %w( *.scss )
 # Rails.application.config.assets.precompile += %w( *.js )
-Rails.application.config.assets.precompile += %w( basic_header.css )
-Rails.application.config.assets.precompile += %w( foot.css )
-Rails.application.config.assets.precompile += %w( footer_white.css )
-Rails.application.config.assets.precompile += %w( footer_with_logo.css )
-Rails.application.config.assets.precompile += %w( header_icons.css )
-Rails.application.config.assets.precompile += %w( scaffolds.css )
-Rails.application.config.assets.precompile += %w( user_items.css )
-Rails.application.config.assets.precompile += %w( npm.js )
-Rails.application.config.assets.precompile += %w( user_items.js )
-Rails.application.config.assets.precompile += %w( cable.js )
-Rails.application.config.assets.precompile += %w( bootstrap.js )
-Rails.application.config.assets.precompile += %w( income.js )
+
+
+
+
+
+
+# Rails.application.config.assets.precompile += %w( basic_header.css )
+# Rails.application.config.assets.precompile += %w( foot.css )
+# Rails.application.config.assets.precompile += %w( footer_white.css )
+# Rails.application.config.assets.precompile += %w( footer_with_logo.css )
+# Rails.application.config.assets.precompile += %w( header_icons.css )
+# Rails.application.config.assets.precompile += %w( scaffolds.css )
+# Rails.application.config.assets.precompile += %w( user_items.css )
+# Rails.application.config.assets.precompile += %w( npm.js )
+# Rails.application.config.assets.precompile += %w( user_items.js )
+# Rails.application.config.assets.precompile += %w( cable.js )
+# Rails.application.config.assets.precompile += %w( bootstrap.js )
+# Rails.application.config.assets.precompile += %w( income.js )

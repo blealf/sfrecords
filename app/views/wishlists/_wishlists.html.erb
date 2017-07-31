@@ -29,7 +29,7 @@
             <td><%= wishlist.quantity %></td>
             <td><%= wishlist.amount %></td>
             <td><%= link_to 'Edit', edit_wishlist_path(wishlist), class: 'btn btn-primary' %></td>
-            <td><%= link_to 'Delete', wishlist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "wishlists/" + wishlist.id.to_s %>">Delete</button></td>
           </tr>
         <% end %>
       </tbody>
@@ -39,3 +39,4 @@
   </div>
   <% end %>
 </div>
+<%= render 'shared/modal_part' %>

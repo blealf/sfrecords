@@ -16,8 +16,10 @@
 //= require jquery_ujs
 //= require popper
 //= require turbolinks
+//= data-confirm-modal
 //= require Chart.bundle
 //= require chartkick
+//= require highcharts
 //= require bootstrap-datepicker
 //= require_tree .
 
@@ -44,35 +46,26 @@
 $(document).on('ready page:load', function () {
 //$( document ).ready(function() {
 
-	$('#exampleModal').on('show.bs.modal', function (event) {
-	  var button = $(event.relatedTarget) // Button that triggered the modal
-	  var recipient = button.data('whatever') // Extract info from data-* attributes
+	$('[data-toggle="popover"]').popover();
+	
+
+
+	$('#exampleModal1').on('show.bs.modal', function (event) {
+	  var button = $(event.relatedTarget); // Button that triggered the modal
+	  var recipient = button.data('whatever'); // Extract info from data-* attributes
 	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	  var modal = $(this)
-	  modal.find('.modal-title').text('Delete!')
-	  var the_button = "<a class='btn btn-danger btn_delete' rel='nofollow' data-method='delete' href='/incomes/" + recipient + "'>Delete</a>"
-	  modal.find('.modal-footer a').replaceWith(the_button)
+	  var modal = $(this);
+	  modal.find('.modal-title').text('Delete!');
+	  var the_button = "<a class='btn btn-danger btn_delete' rel='nofollow' data-method='delete' href='" + recipient + "'>Delete</a>";
+	  modal.find('.modal-footer a').replaceWith(the_button);
 
 	});
 
-
-
-
-	$('#exampleModal_edit1').on('show.bs.modal', function (event) {
-	  var button = $(event.relatedTarget) // Button that triggered the modal
-	  var income_id = button.data('incomeid'); // Extract info from data-* attributes
-	  var income_job = button.data('incomejob');
-	  var income_pay = button.data('incomepay');
-	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	  var modal = $(this)
-	  modal.find('.modal-title').text('Edit')
-	  modal.find('.modal-body .container-fluid .row .col-sm-6 .field #job').text(incomejob)
-
-	});
 
 	$('.date_picker_1').datepicker();
+
+	
 
   // you code here
 
@@ -81,7 +74,7 @@ $(document).on('ready page:load', function () {
   	//var new_button = "<button type='button' class='btn btn-default' data-toggle='popover' title='Comment' data-content='" + comment + "' data-placement='top'>" + "View Comment" + "</button>"
 
   	//$('#my_button').replaceWith(new_button);
-  	$('[data-toggle="popover"]').popover();
+  	
 
 });
 

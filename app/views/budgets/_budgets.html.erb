@@ -32,7 +32,9 @@
             <td><%= time_ago_in_words(budget.created_at) + " ago" %></td>
             <td><%= link_to 'Show', budget, class: 'btn btn-default' %></td>
             <td><%= link_to 'Edit', edit_budget_path(budget), class: 'btn btn-primary' %></td>
-            <td><%= link_to 'Delete', budget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td>
+            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "budgets/" + budget.id.to_s %>">Delete</button></td>
+            
+<!--             <td><%#= link_to 'Delete', budget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %></td> -->
           </tr>
         <% end %>
       </tbody>
@@ -41,3 +43,5 @@
     <br>
   </div>
 </div>
+
+<%= render 'shared/modal_part' %>

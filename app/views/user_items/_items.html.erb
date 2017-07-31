@@ -50,7 +50,7 @@
             <td><%= sprintf("#{current_user.unit} %.2f", user_item.amount) %><%#= sprintf("$%.2f", (user_item.itemcost.to_f * user_item.quantity.to_f)) %></td>
             <td><%= time_ago_in_words(user_item.created_at) + " ago" %></td>
             <td> <%= link_to 'Update', edit_user_item_path(user_item), class: "btn btn-primary" %> </td>
-            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal2" data-whatever="<%= user_item.id %>">Delete</button></td>
+            <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "user_items/" + user_item.id.to_s %>">Delete</button></td>
           </tr>
         <% end %>
       </tbody>
@@ -71,6 +71,8 @@
 
 <hr>
 
+<%= render 'shared/modal_part' %>
+
 <!-- <div class="archives">
     <h2>Blog Archive</h2>
 
@@ -85,7 +87,9 @@
 </div> -->
 
 
-<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+
+
+<!-- <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -102,4 +106,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

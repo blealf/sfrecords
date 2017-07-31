@@ -21,11 +21,13 @@
             <% end %>
         </td>
         <td><%= proposed_income.amount %></td>
-<!--                 <td><%#= link_to 'Edit', edit_income_path(proposed_income.budget), class: "btn btn-primary"  %></td> -->
-        <td><%= link_to 'Delete', [proposed_income.budget, proposed_income], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+        <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "/budgets/" + proposed_income.budget_id.to_s + "/proposed_incomes/" + proposed_income.id.to_s %>">Delete</button></td>
+<!--         <td><%#= link_to 'Delete', [proposed_income.budget, proposed_income], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td> -->
         </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+
+<%= render 'shared/modal_part' %>
