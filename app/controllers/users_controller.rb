@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     end
 
     def user_edit_params
-      params.require(:user).permit(:firstname, :lastname, :othernames, :email, :occupation, :date_of_birth, :username, :unit)
+      params.require(:user).permit(:firstname, :lastname, :othernames, :email, :occupation, :username, :unit)
     end
 
     def currency_unit
