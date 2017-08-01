@@ -38,7 +38,7 @@ $(document).on('ready page:load', function () {
 	});
 
 
-	$('.date_picker_1').datepicker();
+	//$('.date_picker_1').datepicker();
 
   // you code here
 
