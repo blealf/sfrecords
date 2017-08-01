@@ -11,61 +11,34 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery3
 //= require jquery_ujs
 //= require bootstrap.min
 //= require popper
 //= require turbolinks
-//= data-confirm-modal
 //= require Chart.bundle
 //= require chartkick
-//= require highcharts
 //= require bootstrap-datepicker
 //= require_tree .
-
-
-// $( document ).on( 'click', '.navbar-nav li', function ( e ) {
-//     $( this ).addClass( 'active' ).siblings().removeClass( 'active' );
-// } );
-
-// $(document).ready(function(){
-
-// 	var current_item  = $('.active')
-// 	$('.nav a').click(function(){
-// 		current_item.removeClass('active');
-// 		$(this).addClass('active');
-// 	});
-// });
-
-// $(document).ready(function() {
-//     $(document).on('click', '.nav a', function (e) {
-//         $(this).parent().addClass('active').siblings().removeClass('active');
-//     });
-// });
 
 $(document).on('ready page:load', function () {
 //$( document ).ready(function() {
 
 	$('[data-toggle="popover"]').popover();
-	
-
 
 	$('#exampleModal1').on('show.bs.modal', function (event) {
-	  var button = $(event.relatedTarget); // Button that triggered the modal
-	  var recipient = button.data('whatever'); // Extract info from data-* attributes
+	  var button = $(event.relatedTarget) // Button that triggered the modal
+	  var recipient = button.data('whatever') // Extract info from data-* attributes
 	  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
 	  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-	  var modal = $(this);
-	  modal.find('.modal-title').text('Delete!');
-	  var the_button = "<a class='btn btn-danger btn_delete' rel='nofollow' data-method='delete' href='" + recipient + "'>Delete</a>";
-	  modal.find('.modal-footer a').replaceWith(the_button);
+	  var modal = $(this)
+	  modal.find('.modal-title').text('Delete!')
+	  var the_button = "<a class='btn btn-danger btn_delete' rel='nofollow' data-method='delete' href='/" + recipient + "'>Delete</a>"
+	  modal.find('.modal-footer a').replaceWith(the_button)
 
 	});
 
 
 	$('.date_picker_1').datepicker();
-
-	
 
   // you code here
 

@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+# Gemfile
+# source "https://rails-assets.org"
+# gem 'rails-assets-bootstrap', ">= 4.0.0.alpha.2" 
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -14,7 +17,9 @@ gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
+gem 'sass-rails', '~> 5.0.1'
+gem 'bootstrap-sass', '= 3.3.4.1' # I downgraded to this version
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -37,7 +42,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Bootstrap
-gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+# gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'popper_js', '~> 1.9.9'
+
 # gem 'bootstrap-sass'
 gem 'rails_bootstrap_navbar'
 gem 'bcrypt', '3.1.11'
