@@ -3,7 +3,8 @@ class UserItem < ApplicationRecord
 	belongs_to :user
 	before_save { calculate_amount }
 
-	validates :itemname, :category, presence: true
+	validates :itemname,presence: true
+	# validates :category, presence: true
 
 	VALID_NUMBER_REGEX = /\d+(([.,])\d+)?/
 	validates :itemcost, presence: true, format: { with: VALID_NUMBER_REGEX }

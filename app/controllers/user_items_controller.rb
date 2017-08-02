@@ -23,7 +23,7 @@ class UserItemsController < ApplicationController
     @totalCost = UserItem.totalCost(@user_item_bp)
     @totalQuantity = UserItem.totalQuantity(@user_item_bp)
     @user_item_months = UserItem.all.to_a.group_by { |u| u.created_at.beginning_of_month }
-    @user_items = @user_item_bp.paginate(:page => params[:page], :per_page => 3)
+    @user_items = @user_item_bp.paginate(:page => params[:page], :per_page => 30)
     #======================================================================================
 
     # @user_items = UserItem.where('created_at > ? and user_id = ?', info_period.to_i.days.ago, current_user.id).order(sort_column + ' ' + sort_direction)

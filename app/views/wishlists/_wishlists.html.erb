@@ -20,6 +20,7 @@
       <thead>
         <tr>
           <th>Item Name</th>
+          <th>Store Name</th>
           <th>Comment</th>
           <th>Item Cost</th>
           <th>Quantity</th>
@@ -32,6 +33,7 @@
         <% @wishlists.each do |wishlist| %>
           <tr>
             <td><%= wishlist.itemname %></td>
+            <td><%= wishlist.storename %></td>
             <td>
               <% if !wishlist.comment.empty? %>
                 <button type="button" class="btn btn-default" data-toggle="popover" title="Comment" data-content="<%= wishlist.comment%>" data-placement="top" id="my_button" >
@@ -39,11 +41,31 @@
                 </button>
               <% end %>
             </td>
+
             <td><%= number_to_currency(wishlist.itemcost, unit: current_user.unit + " ", precision: 2) %></td>
             <td><%= wishlist.quantity %></td>
             <td><%= number_to_currency(wishlist.amount, unit: current_user.unit + " ", precision: 2) %></td>
+            <% if wishlist.status? == true %>
+              <td> <p>bought <span class="glyphicon glyphicon-ok" style="color:green"></span></p></td>
+            <% else %>
+              <td>
+                <div class="dropdown btn btn-default">
+                  <a id="dLabel" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                  Status
+                  <span class="caret"></span>
+                  </a>
+
+                  <ul class="dropdown-menu" aria-labelledby="dLabel">
+                    <li><%= link_to "Bought", :status => "#{wishlist.id}" %> </li> 
+                  </ul>
+                </div>
+              </td>
+            <% end %>
+
             <td><%= link_to 'Edit', edit_wishlist_path(wishlist), class: 'btn btn-primary' %></td>
             <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "wishlists/" + wishlist.id.to_s %>">Delete</button></td>
+
+
           </tr>
         <% end %>
         </tbody>

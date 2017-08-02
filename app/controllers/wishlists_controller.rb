@@ -5,6 +5,13 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
+    if params[:status]
+      status = params[:status]
+      update_status = Wishlist.find(status).update(status: true)
+      wu = Wishlist.find(status)
+      UserItem.create(user_id: wu.user_id, itemname: wu.itemname, itemcost: wu.itemcost, storename: wu.storename, 
+        shortdescription: wu.comment, quantity: wu.quantity, amount: wu.amount, category: wu.category )
+    end
     period = params[:period] || 30
     @wishlists = Wishlist.where('created_at > ?', period.to_i.days.ago).order(created_at: :desc)
     @totalCost = Wishlist.totalCost(@wishlists)
@@ -23,6 +30,7 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists/1/edit
   def edit
+    set_wishlist
     index
   end
 
@@ -76,6 +84,6 @@ class WishlistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def wishlist_params
-      params.require(:wishlist).permit(:itemname, :comment, :itemcost, :quantity, :amount)
+      params.require(:wishlist).permit(:itemname, :comment, :itemcost, :quantity, :amount, :status, :storename, :category)
     end
 end
