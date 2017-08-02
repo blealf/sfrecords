@@ -30,7 +30,7 @@
     <% @incomes.each do |income| %>
       <tr>
         <td><%= income.job %></td>
-        <td><%= income.pay %></td>
+        <td><%= number_to_currency(income.pay, unit: current_user.unit + " ", precision: 2) %></td>
         <td><%= income.created_at.strftime("%d-%m-%Y") %></td>
         <td><%= link_to 'Edit', edit_income_path(income), class: "btn btn-primary"  %></td>
         <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "incomes/" + income.id.to_s %>">Delete</button></td>
@@ -38,6 +38,12 @@
       </tr>
     <% end %>
   </tbody>
+    <tr>
+      <td></td>
+    </tr>
+    <th>Total</th>
+    <th><%= number_to_currency(@totalCost, unit: current_user.unit + " ", precision: 2)%></th>
+    <th></th>
 </table>
 
 <br>

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorize,  only: [:index, :show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
@@ -10,6 +11,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    set_user
+    @user_spending  = User.totalSpending(current_user.id)
+    @user_income    = User.totalIncome(current_user.id)
   end
 
   # GET /users/new
@@ -20,6 +24,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    set_user
     currency_unit
   end
 
@@ -43,6 +48,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    set_user
     currency_unit
 
     if params[:user][:password].blank?
@@ -63,6 +69,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -74,6 +81,11 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+      # if @user.admin = true
+      #   @user = User.find(params[:id])
+      # else
+      #   @user = User.find(current_user.id)
+      # end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

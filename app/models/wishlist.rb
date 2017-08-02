@@ -15,4 +15,10 @@ class Wishlist < ApplicationRecord
 		self.amount = self.itemcost * self.quantity
 	end
 
+	def self.totalCost(wishlists)
+		sum = 0.00
+		wishlists.map{|wishlist| sum += wishlist.amount.to_f}
+		return sum
+	end
+
 end

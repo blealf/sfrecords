@@ -62,6 +62,34 @@
           </div>  
         </div>
 
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Total Spending </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= number_to_currency(@user_spending, unit: current_user.unit + " ", precision: 2) %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Total Income </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= number_to_currency(@user_income, unit: current_user.unit + " ", precision: 2) %>
+            </div>
+          </div>  
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 control-label"> <strong> Total Savings </strong> </div>
+          <div class="col-xs-8">
+            <div class="form-control butn">
+              <%= number_to_currency(@user_income - @user_spending, unit: current_user.unit + " ", precision: 2) %>
+            </div>
+          </div>  
+        </div>
+
+
 
       </form>
 

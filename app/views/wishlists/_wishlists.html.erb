@@ -25,14 +25,23 @@
                 </button>
               <% end %>
             </td>
-            <td><%= wishlist.itemcost%></td>
+            <td><%= number_to_currency(wishlist.itemcost, unit: current_user.unit + " ", precision: 2) %></td>
             <td><%= wishlist.quantity %></td>
-            <td><%= wishlist.amount %></td>
+            <td><%= number_to_currency(wishlist.amount, unit: current_user.unit + " ", precision: 2) %></td>
             <td><%= link_to 'Edit', edit_wishlist_path(wishlist), class: 'btn btn-primary' %></td>
             <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "wishlists/" + wishlist.id.to_s %>">Delete</button></td>
           </tr>
         <% end %>
-      </tbody>
+        </tbody>
+          <tr>
+            <td></td>
+          </tr>
+          <th>Total</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th><%= number_to_currency(@totalCost, unit: current_user.unit + " ", precision: 2) %></th>
+      
     </table>
 
     <br>

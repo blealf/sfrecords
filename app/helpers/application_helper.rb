@@ -6,6 +6,12 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction, :period => params[:period]}, {:class => css_class}
   end
 
+  # def authorize!
+  #   unless User.find_by(id: session[:user_id])
+  #     redirect_to login_url, notice: "Please log in"
+  #   end
+  # end
+
 
   # def sortable(column, title = nil)
   #   title ||= column.titleize

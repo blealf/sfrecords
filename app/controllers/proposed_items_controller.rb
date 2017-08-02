@@ -1,5 +1,6 @@
 class ProposedItemsController < ApplicationController
-  before_action :set_proposed_item, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
+  # before_action :set_proposed_item, only: [:show, :edit, :update, :destroy]
 
   # GET /proposed_items/1/edit
 

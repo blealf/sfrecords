@@ -1,5 +1,6 @@
 class ProposedIncomesController < ApplicationController
-  before_action :set_proposed_income, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
+  # before_action :set_proposed_income, only: [:show, :edit, :update, :destroy]
 
   # GET /proposed_incomes/1/edit
 

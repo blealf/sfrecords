@@ -25,7 +25,13 @@ class User < ApplicationRecord
 		return ["CAD", "USD", "EUR", "GBP", "AUD", "NZD", "NGN", "YEN", "BGN", "CHF"]
 	end
 
+	def self.totalSpending(user)
+		UserItem.totalCost(UserItem.where(user_id: user).find_each)
+	end
 
+	def self.totalIncome(user)
+		Income.totalIncome(Income.where(user_id: user).find_each)
+	end
 	# def self.digest(string)
 	# 	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 	# 	BCrypt::Password.create(string, cost: cost)

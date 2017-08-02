@@ -1,10 +1,12 @@
 class WishlistsController < ApplicationController
-  before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
+  before_action :authorize
+  # before_action :set_wishlist, only: [:show, :edit, :update, :destroy]
 
   # GET /wishlists
   # GET /wishlists.json
   def index
     @wishlists = Wishlist.all
+    @totalCost = Wishlist.totalCost(@wishlists)
   end
 
   # GET /wishlists/1

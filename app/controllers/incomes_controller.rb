@@ -1,5 +1,6 @@
 class IncomesController < ApplicationController
-  before_action :set_income, only: [:edit, :update, :destroy]
+  before_action :authorize
+  # before_action :set_income, only: [:edit, :update, :destroy]
 
   # GET /incomes
   # GET /incomes.json
@@ -7,6 +8,7 @@ class IncomesController < ApplicationController
     #@incomes = Income.all
     period = params[:period] || 30
     @incomes = Income.where('created_at > ?', period.to_i.days.ago).order(created_at: :desc)
+    @totalCost = Income.totalIncome(@incomes)
   end
 
   # GET /incomes/1
