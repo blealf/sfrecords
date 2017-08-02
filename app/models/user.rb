@@ -1,11 +1,12 @@
 class User < ApplicationRecord
 
 	#attr_accessor :password
+	# before_create { generate_token(:auth_token) }
 
-	has_many :user_items
-	has_many :incomes
-	has_many :budgets
-	has_many :wishlists
+	has_many :user_items, dependent: :destroy
+	has_many :incomes, dependent: :destroy
+	has_many :budgets, dependent: :destroy
+	has_many :wishlists, dependent: :destroy
 
 	before_save { self.email = email.downcase }
 
@@ -35,6 +36,19 @@ class User < ApplicationRecord
 	# def self.digest(string)
 	# 	cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
 	# 	BCrypt::Password.create(string, cost: cost)
+	# end
+
+	# def send_password_reset
+	#   generate_token(:password_reset_token)
+	#   self.password_reset_sent_at = Time.zone.now
+	#   save!
+	#   UserMailer.password_reset(self).deliver
+	# end
+
+	# def generate_token(column)
+	#   begin
+	#     self[column] = SecureRandom.urlsafe_base64
+	#   end while User.exists?(column => self[column])
 	# end
 
 end

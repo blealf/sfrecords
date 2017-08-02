@@ -33,7 +33,7 @@
         </tr>
       </thead>
 
-      <tbody class="items">
+      <tbody class="items" >
         <% @user_items.each do |user_item| %>
           <tr>
             <td><%= user_item.itemname.capitalize %></td>
@@ -68,6 +68,9 @@
         <td></td>
         <td></td>
     </table>
+  </div>
+  <div class="cover">
+    <%= will_paginate @user_items, renderer: BootstrapPagination::Rails %>
   </div>
   <% end %>
 </div>

@@ -57,12 +57,14 @@ gem 'groupdate'
 
 gem 'bootstrap_form'
 gem 'bootstrap-datepicker-rails'
+gem 'will_paginate-bootstrap'
 
 #money
 gem 'concurrency'
 
 
 gem 'rails_12factor', group: :production
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

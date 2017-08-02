@@ -5,7 +5,8 @@ class WishlistsController < ApplicationController
   # GET /wishlists
   # GET /wishlists.json
   def index
-    @wishlists = Wishlist.all
+    period = params[:period] || 30
+    @wishlists = Wishlist.where('created_at > ?', period.to_i.days.ago).order(created_at: :desc)
     @totalCost = Wishlist.totalCost(@wishlists)
   end
 
