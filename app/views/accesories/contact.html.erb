@@ -1,0 +1,17 @@
+<h2 class="text_h2">Contact Us</h2>
+
+<div class="container-fluid cover">
+
+	<% if current_user.role == "admin" %>
+	 	<%= link_to 'Accessory', accesories_url, class: 'btn btn-success' %>
+	<% end %>
+	<hr>
+	
+	<%= @contacts.find_each do |contact| %>
+		<h3> <%= contact.title %> </h3>
+		<div>
+			<%= simple_format(contact.body) %>
+		</div>
+		<hr>
+	<% end %>
+</div>

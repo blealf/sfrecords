@@ -107,8 +107,16 @@
     </div>
   </div>
 
-      <%= link_to 'Settings', edit_user_path(@user), class: 'btn btn-primary' %> |
-      <%= link_to 'Back to Home', root_url, class: 'btn btn-default' %>
+    <hr>
+      <% if current_user.role == "admin" %>
+        <%= link_to 'Back to Home', root_url, class: 'btn btn-default' %> |
+        <%= link_to 'Settings', edit_user_path(@user), class: 'btn btn-primary' %> |
+        <%= link_to 'Users',users_url, class: 'btn btn-success' %> |
+        <%= link_to 'Accessory', accesories_url, class: 'btn btn-success' %>
+
+      <% end %>
+      <hr>
+
 </div>
 
 

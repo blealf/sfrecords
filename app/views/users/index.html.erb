@@ -1,36 +1,38 @@
 <div class="container-fluid cover">
   <h2 class="text_h2">Users</h2>
 
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Othernames</th>
-        <th>Email</th>
-        <th>Occupation</th>
-        <th>Username</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @users.each do |user| %>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover">
+      <thead>
         <tr>
-          <td><%= user.firstname %></td>
-          <td><%= user.lastname %></td>
-          <td><%= user.othernames %></td>
-          <td><%= user.email %></td>
-          <td><%= user.occupation %></td>
-          <td><%= user.username %></td>
-          <td> <%= link_to "Show", user, class: "btn btn-success" %> </td>
-          <td> <%= link_to 'Update', edit_user_path(user), class: "btn btn-primary" %> </td>
-          <td> <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "users/" + user.id.to_s %>"> Remove </button> </td>
-          
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Othernames</th>
+          <th>Email</th>
+          <th>Occupation</th>
+          <th>Username</th>
+          <th colspan="3"></th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.firstname %></td>
+            <td><%= user.lastname %></td>
+            <td><%= user.othernames %></td>
+            <td><%= user.email %></td>
+            <td><%= user.occupation %></td>
+            <td><%= user.username %></td>
+            <td> <%= link_to "Show", user, class: "btn btn-success" %> </td>
+            <td> <%= link_to 'Update', edit_user_path(user), class: "btn btn-primary" %> </td>
+            <td> <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModal1" data-whatever="<%= "users/" + user.id.to_s %>"> Remove </button> </td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <br>

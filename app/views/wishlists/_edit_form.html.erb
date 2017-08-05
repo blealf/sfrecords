@@ -42,10 +42,20 @@
 
         <div class="field">
           <%= f.label :status%><br />
-          <%= f.label :status, "Yes", :value => true , :class => 'radio-inline' %>
-          <%= f.radio_button :status, true, :class => 'radio' %>
-          <%= f.label :status, "No", :value => false, :class => 'radio-inline' %>
-          <%= f.radio_button :status, false, :class => 'radio' %>
+          <div class="row">
+            <div class="col-xs-3 col-sm-2 col-md-1">
+              <%= f.label :status, "Yes", :value => true , :class => 'radio-inline' %>
+            </div>
+            <div class="col-xs-3 col-sm-2 col-md-1">
+              <%= f.radio_button :status, true, :class => 'radio' %>
+            </div>
+            <div class="col-xs-3 col-sm-2 col-md-1">
+              <%= f.label :status, "No", :value => false, :class => 'radio-inline' %>
+            </div>
+            <div class="col-xs-3 col-sm-2 col-md-1">
+              <%= f.radio_button :status, false, :class => 'radio' %>
+            </div>
+          </div>
         </div>
 
         <div class="actions col-sm-offset-4 col-md-8">

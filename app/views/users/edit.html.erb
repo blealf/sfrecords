@@ -48,6 +48,12 @@
 	          <%= f.label :username %>
 	          <%= f.text_field :username, class: 'form-control' %>
 	        </div>
+	        <% if current_user.role == "admin" %>
+		        <div class="field">
+		          <%= f.label :role, 'User Roles:' %>
+		          <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+		        </div>
+	        <% end %>
 	        
 <!-- 	        <div class="field">
 	          <%= f.label :unit, 'Currency Unit: ' %>
@@ -65,8 +71,13 @@
 	  </div>
 	</div>
 
+	<hr>
+	<% if current_user.role == "admin" %>
+		<%= link_to 'Back to Home', root_url, class: 'btn btn-default' %> |
+ 		<%= link_to 'Users',users_url, class: 'btn btn-success' %> |
+ 		<%= link_to 'Accessory', accesories_url, class: 'btn btn-success' %>
 
-
-	<%= link_to 'Show Profile', @user, class: 'btn btn-primary' %> |
-	<%= link_to 'Back to Home', root_url, class: 'btn btn-default' %>
+	<% end %>
+	<hr>
+	
 </div>

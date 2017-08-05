@@ -18,6 +18,7 @@
 //= require Chart.bundle
 //= require chartkick
 //= require bootstrap-datepicker
+//= require ckeditor/init
 //= require_tree .
 
 $(document).on('ready page:load', function () {

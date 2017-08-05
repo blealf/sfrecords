@@ -1,0 +1,40 @@
+<div class="container-fluid">
+<%= javascript_include_tag Ckeditor.cdn_url %>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
+      <%= bootstrap_form_for(accesory) do |f| %>
+        <% if accesory.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(accesory.errors.count, "error") %> prohibited this accesory from being saved:</h2>
+
+            <ul>
+            <% accesory.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="field">
+          <%= f.text_field :title, class: "butn" %>
+        </div>
+
+        <div class="field">
+        <%= f.cktext_area :body, class: 'butn', ckeditor: {language: 'en' } %>
+        </div>
+
+        <div class="field">
+          <%# if defined?(@categories) %>
+          <%= f.select :acc_type, Accesory.acc_type, { :label => "Type"}, class: "col-sm-12 form-control butn" %>
+          <% #end %>
+        </div>
+
+        <p>.</p>
+
+        <div class="actions col-sm-offset-4 col-md-8">
+          <%= f.submit class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

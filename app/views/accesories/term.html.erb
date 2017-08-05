@@ -1,0 +1,17 @@
+<h2 class="text_h2">Terms of Service</h2>
+
+<div class="container-fluid cover">
+
+	<% if current_user.role == "admin" %>
+	 	<%= link_to 'Accessory', accesories_url, class: 'btn btn-success' %>
+	<% end %>
+	<hr>
+	
+	<%= @terms.find_each do |term| %>
+		<h3> <%= term.title %> </h3>
+		<div>
+			<%= simple_format(term.body) %>
+		</div>
+		<hr>
+	<% end %>
+</div>

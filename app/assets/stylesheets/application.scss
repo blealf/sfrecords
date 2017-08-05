@@ -50,7 +50,7 @@ body {
 }
 
 #main_front {
-	margin-top: -20px;
+	margin-top: -accesory
 }
 
 //========================
@@ -159,4 +159,14 @@ td a {
 
 .radio_button {
 	display: inline;
+}
+
+//Table
+.accesory {
+	table-layout: fixed;
+}
+.accesory td {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

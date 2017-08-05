@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authorize,  only: [:index, :show, :edit, :update, :destroy]
+  before_action :authorize,  only: [:index, :show, :edit, :update]
+  before_action :admin_user, only: [:index, :destroy]
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -90,7 +91,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:firstname, :lastname, :othernames, :email, :password, :password_confirmation, :unit)
+      params.require(:user).permit(:role, :firstname, :lastname, :othernames, :email, :password, :password_confirmation, :unit)
     end
 
     def user_edit_params
@@ -100,5 +101,6 @@ class UsersController < ApplicationController
     def currency_unit
       @units = ["CAD", "USD", "EUR", "GBP", "AUD", "NZD", "NGN", "YEN", "BGN", "CHF"]
     end
+
 
 end

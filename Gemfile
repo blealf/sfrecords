@@ -64,6 +64,9 @@ gem 'concurrency'
 
 
 gem 'rails_12factor', group: :production
+gem 'ckeditor', github: 'galetahub/ckeditor'
+gem "paperclip", "~> 5.0.0"
+gem 'cancancan', '~> 2.0'
 
 
 group :development, :test do

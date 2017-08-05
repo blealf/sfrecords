@@ -1,0 +1,12 @@
+<div class="container-fluid cover">
+		<h3> <%= @accesory.title %> </h3>
+		<div>
+			<%= simple_format(@accesory.body) %>
+		</div>
+		<%= @accesory.acc_type %>
+
+<hr>
+<%= link_to 'Edit', edit_accesory_path(@accesory), class: 'btn btn-primary' %> |
+<%= link_to 'Back', accesories_path, class: 'btn btn-default' %> |
+<%= link_to 'Accessory', accesories_url, class: 'btn btn-success' %>
+</div>

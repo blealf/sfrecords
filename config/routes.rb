@@ -3,7 +3,12 @@ Rails.application.routes.draw do
 
   
   
+  mount Ckeditor::Engine => '/ckeditor'
+  resources :accesories
    #post		'user_items/:id/edit'	=>	'user_items#edit'
+  get      'abouts'     =>  'accesories#about'
+  get      'contacts'   =>  'accesories#contact'
+  get      'terms'      =>  'accesories#term'
   get      'budgets'    =>  'budgets#new'
   get      'wishlists'  =>  'wishlists#new'
   get		   'incomes'	  =>  'incomes#new'
